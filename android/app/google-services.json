@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "731934418481",
+    "project_id": "wisdomfabrics-623a3",
+    "storage_bucket": "wisdomfabrics-623a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731934418481:android:7f03c9211c48e9fb919710",
+        "android_client_info": {
+          "package_name": "com.wisdomfabrics.wisdomfabrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731934418481-babu7bm0mlfcuvmvff07dqucv3k5j8dl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfWTIVSFrhACC9ZC87CNV61gHXYravA-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731934418481-babu7bm0mlfcuvmvff07dqucv3k5j8dl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "731934418481-1quv8s5pfv2jpi9aqjdm83a7blemf0o6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ecommerceAdminApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

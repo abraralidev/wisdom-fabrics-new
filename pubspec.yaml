@@ -1,0 +1,71 @@
+name: wisdomfabrics
+description: A new Flutter project.
+publish_to: none
+version: 1.0.0+1
+environment:
+    sdk: '>=2.17.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  onesignal_flutter: ^3.5.1
+  hexcolor: ^3.0.1
+  percent_indicator:
+  carousel_slider:
+  google_fonts: ^3.0.1
+  badges: ^3.0.2
+  firebase_auth: ^4.2.5
+  fancy_shimmer_image: ^2.0.2
+  fluttertoast:
+  firebase_storage: ^11.0.10
+  cloud_firestore: ^4.3.1
+  adaptive_theme: ^3.1.1
+  firebase_messaging: ^14.2.2
+  get:
+  firebase_core: ^2.4.1
+  google_sign_in: ^6.1.0
+
+dev_dependencies:
+    flutter_test:
+        sdk: flutter
+    flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+
+
+  # To add assets to your application, add an assets section, like this:
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+  #   - images/a_dot_ham.jpeg
+
+      
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+      
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+      
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+fonts:
+  - family: Poppins
+    fonts:
+        - asset: assets/fonts/Poppins-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Thin.ttf
+          weight: 100 
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
