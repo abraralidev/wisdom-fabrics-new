@@ -1,5 +1,8 @@
-// ignore_for_file: camel_case_types, file_names, use_build_context_synchronously, unused_element
+// ignore_for_file: camel_case_types, file_names, use_build_context_synchronously, unused_element, unused_local_variable, non_constant_identifier_names, unnecessary_null_comparison, prefer_if_null_operators, deprecated_member_use, avoid_print, prefer_typing_uninitialized_variables
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:wisdomfabrics/Page/page.dart';
 import 'package:wisdomfabrics/Screens/Payment/payment.dart';
 import 'package:wisdomfabrics/Screens/SignUp/signup.dart';
@@ -8,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CheckOut extends StatefulWidget {
   const CheckOut({Key? key}) : super(key: key);
@@ -24,6 +28,13 @@ class _CheckOutState extends State<CheckOut> {
   final TextEditingController cityController = TextEditingController();
   final TextEditingController nite = TextEditingController();
   final TextEditingController statepasswordController = TextEditingController();
+  final TextEditingController bodylenght = TextEditingController();
+  final TextEditingController chest = TextEditingController();
+  final TextEditingController shoulder = TextEditingController();
+  final TextEditingController waist = TextEditingController();
+  final TextEditingController bottomwaist = TextEditingController();
+  final TextEditingController sleeve = TextEditingController();
+
   bool load = false;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +59,7 @@ class _CheckOutState extends State<CheckOut> {
           hintText: "Name",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
-    //--------------------------------Last Name
+    //--------------------------------Address
     final lastnamefeild = TextFormField(
       autofocus: false,
       controller: addressController,
@@ -68,7 +79,7 @@ class _CheckOutState extends State<CheckOut> {
           hintText: "Address",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
-    //--------------------------------Email
+    //--------------------------------Phone
     final emailfeild = TextFormField(
       autofocus: false,
       controller: numController,
@@ -89,7 +100,7 @@ class _CheckOutState extends State<CheckOut> {
           hintText: "Phone number",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
-    //--------------------------------Password
+    //--------------------------------City
     final passwordfeild = TextFormField(
       autofocus: false,
       keyboardType: TextInputType.text,
@@ -111,7 +122,7 @@ class _CheckOutState extends State<CheckOut> {
           hintText: "City",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
-    //--------------------------------Confirm Password
+    //--------------------------------State
     final confirmpassword = TextFormField(
       autofocus: false,
       controller: statepasswordController,
@@ -125,7 +136,98 @@ class _CheckOutState extends State<CheckOut> {
           hintText: "State",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
-    final notespassword = TextFormField(
+
+    //-------------------------------- Body Lenght
+    final BodyLenght = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: bodylenght,
+      onSaved: (value) {
+        bodylenght.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Body Lenght",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    );
+    //-------------------------------- Chest Width
+    final ChestWidth = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: chest,
+      onSaved: (value) {
+        chest.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Chest Width",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    );
+    //-------------------------------- Shoulder width
+    final Shoulderwidth = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: shoulder,
+      onSaved: (value) {
+        shoulder.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Shoulder Width",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    );
+    //-------------------------------- Waist width
+    final Waistwidth = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: waist,
+      onSaved: (value) {
+        waist.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Waist width",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    );
+    //-------------------------------- Bottom width
+    final Bottomwidth = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: bottomwaist,
+      onSaved: (value) {
+        bottomwaist.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Bottom width",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    );
+    //-------------------------------- Sleeve lenght
+    final Sleevelenght = TextFormField(
+      autofocus: false,
+      maxLines: 1,
+      controller: sleeve,
+      onSaved: (value) {
+        sleeve.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          prefixIcon: const Icon(Icons.text_fields),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          hintText: "Sleeve lenght",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+    ); //--------------------------------Note
+    final Notes = TextFormField(
       autofocus: false,
       maxLines: 7,
       controller: nite,
@@ -140,6 +242,7 @@ class _CheckOutState extends State<CheckOut> {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
     );
     //--------------------------------Button
+    var imagePath;
     final loginbutton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -147,8 +250,20 @@ class _CheckOutState extends State<CheckOut> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          uploadcart();
+        onPressed: () async {
+          setState(() {
+            load = true;
+          });
+          final imageUrl = await uploadImageToFirebase(imagePath);
+          if (imageUrl != null) {
+            // Save the image URL to Firestore
+            await uploadcart(imageUrl);
+
+            setState(() {
+              uploadedImage = File(imagePath);
+            });
+          }
+          uploadcart(imageUrl);
           // uploadorderhistory();
         },
         child: const Text(
@@ -187,7 +302,7 @@ class _CheckOutState extends State<CheckOut> {
                             child: Text(
                               'CHECKOUT',
                               style: TextStyle(
-                                fontSize: 35,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: HexColor('62CDFF'),
                               ),
@@ -216,15 +331,102 @@ class _CheckOutState extends State<CheckOut> {
                           const SizedBox(
                             height: 15,
                           ),
-                          notespassword,
+                          Text("Size Details",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: HexColor('62CDFF'))),
                           const SizedBox(
-                            height: 20,
+                            height: 15,
                           ),
+                          BodyLenght,
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          ChestWidth,
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Shoulderwidth,
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Waistwidth,
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Bottomwidth,
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Sleevelenght,
+                          const SizedBox(
+                            height: 15,
+                          ),
+
+                          const SizedBox(
+                            height: 15,
+                          ),
+
+                          Notes,
                           const SizedBox(
                             height: 20,
                           ),
                           // add total price of order
+                          InkWell(
+                            onTap: () async {
+                              final pickedImage = await ImagePicker()
+                                  .getImage(source: ImageSource.gallery);
 
+                              if (pickedImage != null) {
+                                imagePath = pickedImage.path;
+                                final imageUrl =
+                                    await uploadImageToFirebase(imagePath);
+                              } else {
+                                // Permission denied or restricted
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text(
+                                      'Permission denied. Please allow access to photos.',
+                                    ),
+                                  ),
+                                );
+                                // Handle accordingly (e.g., show an error message)
+                              }
+                            },
+                            child: Container(
+                              // image uplaod box
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Icon(
+                                    Icons.add_a_photo,
+                                    size: 50,
+                                    color: Colors.grey,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Upload Design Image",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           loginbutton,
                           const SizedBox(
                             height: 12,
@@ -237,6 +439,27 @@ class _CheckOutState extends State<CheckOut> {
               ),
             ),
     );
+  }
+
+  File? uploadedImage;
+
+  // Function to upload the image to Firebase Storage
+  Future<String?> uploadImageToFirebase(String imagePath) async {
+    final storage = FirebaseStorage.instance;
+    final storageRef = storage.ref();
+
+    final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+    final fileName = 'image_$timestamp.jpg';
+
+    final imageRef = storageRef.child(fileName);
+
+    await imageRef.putFile(File(imagePath));
+
+    final imageUrl = await imageRef.getDownloadURL();
+
+    print('Uploaded image URL: $imageUrl');
+
+    return imageUrl;
   }
 
   User? user = FirebaseAuth.instance.currentUser;
@@ -254,7 +477,7 @@ class _CheckOutState extends State<CheckOut> {
   }
 
   UserModel loggedinUser = UserModel();
-  uploadcart() async {
+  uploadcart(imageUrl) async {
     setState(() {
       load == !load;
     });
@@ -289,6 +512,13 @@ class _CheckOutState extends State<CheckOut> {
             "${DateTime.now().hour % 12}:${DateTime.now().minute} ${DateTime.now().hour < 12 ? 'AM' : 'PM'}",
         // Total price
         'totalPrice': calculateTotalPrice(snaphsots.docs),
+        'bodylenght': bodylenght.text == null ? "" : bodylenght.text,
+        'chest width': chest.text == null ? "" : chest.text,
+        'Shoulder width': shoulder.text == null ? "" : shoulder.text,
+        'waist width': waist.text == null ? "" : waist.text,
+        'bottom width': bottomwaist.text == null ? "" : bottomwaist.text,
+        'Sleeve lenght': sleeve.text == null ? "" : sleeve.text,
+        'design Image': imageUrl == null ? "" : imageUrl,
         'status': 'Pending',
       },
     );

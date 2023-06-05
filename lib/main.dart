@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Book Corner',
+      title: 'Wisdom Fabrics',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
